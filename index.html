@@ -21,12 +21,18 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-demi/0.13.11/index.iife.js"></script>
+    <script>const I = VueDemi; const vueDemi = VueDemi;</script>
+    <!-- Pinia 網頁版，實戰中還是以 npm 為主，這是比較少見的使用方式 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pinia/2.0.22/pinia.iife.js"></script>
+
+
     <script type="module">
         const { createApp } = Vue;
+        const { createPinia } = Pinia;
 
-        import NavbarComponent from './component/navbarComponent.js'
-        import CartComponent from './component/cartComponent.js'
-        import ProductsComponent from './component/productsComponent.js'
+        import NavbarComponent from './component/navbarComponent.js';
+        import CartComponent from './component/cartComponent.js';
+        import ProductsComponent from './component/productsComponent.js';
 
         const app = createApp({
             components:{
@@ -34,8 +40,9 @@
                 CartComponent,
                 ProductsComponent,
             }
-        })
-
+        });
+        const pinia = createPinia();
+        app.use(pinia);
         app.mount('#app');
 
     </script>
