@@ -21,7 +21,7 @@ export default defineStore('productsStore', {
                 id: 3,
                 title: '史黛菈',
                 imageUrl: 'https://i02piccdn.sogoucdn.com/2fdfb440cc759ce4',
-                price: 230
+                price: 130
             },
             {
                 id: 4,
@@ -33,7 +33,7 @@ export default defineStore('productsStore', {
     }),
     getters:{
         sortProducts: ({ products }) =>{
-            return products;
+            return products.sort((a,b) => a.price - b.price);
         }
     }
 })
