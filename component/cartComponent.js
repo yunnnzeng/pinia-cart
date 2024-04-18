@@ -18,8 +18,9 @@ export default {
                 </td>
                 <td>{{ item.product.title }}</td>
                 <td>
-                    <select name="" class="form-select" id="">
-                        <option value="">1</option>
+                    <select name="" class="form-select" :value="item.qty"
+                        @change="(evt) => setCartQty(item.id, evt)">
+                        <option :value="i" v-for="i in 20" :key="i">{{ i }}</option>
                     </select>
                 </td>
                 <td class="text-end">
@@ -39,6 +40,6 @@ export default {
         ...mapState(cartStore, ['cartList'])
     },
     methods: {
-        ...mapActions(cartStore, ['removeCartItem'])
+        ...mapActions(cartStore, ['removeCartItem', 'setCartQty'])
     }
 }

@@ -19,6 +19,10 @@ export default defineStore('cart', {
                 })
             }
         },
+        setCartQty(id, event){
+            const currentCart = this.cart.find((item) => item.id === id);
+            currentCart.qty = event.target.value * 1;
+        },
         removeCartItem(id) {
             const index = this.cart.findIndex((item) => item.id === id);
             this.cart.splice(index, 1);
