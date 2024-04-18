@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Navbar</span>
+                <button type="button" class="btn">
+                    購物車
+                    <span class="badge rounded-pill bg-danger">0</span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="bg-light my-4 p-4">
+            <div>購物車沒有任何品項</div>
+            <table class="table align-middle">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="#" class="text-dark">X</a>
+                        </td>
+                        <td>
+                            <img src="https://images.pexels.com/photos/2444403/pexels-photo-2444403.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                                alt="" class="table-image">
+                        </td>
+                        <td>產品名稱</td>
+                        <td>
+                            <select name="" class="form-select" id="">
+                                <option value="">1</option>
+                            </select>
+                        </td>
+                        <td class="text-end">
+                            $900
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5" class="text-end">總金額 NT$ 900 </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+
+        <div class="row row-cols-3 my-4">
+            <div class="col">
+                <div class="card">
+                    <img src="https://images.pexels.com/photos/2444403/pexels-photo-2444403.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h6 class="card-title">產品名稱
+                            <span class="float-end"> $900</span>
+                        </h6>
+                        <a href="#" class="btn btn-outline-primary w-100">加入購物車</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <style>
+        .table-image {
+            height: 100px;
+            width: 100px;
+            object-fit: cover;
+        }
+        .card-img-top{
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</body>
+
+</html>
