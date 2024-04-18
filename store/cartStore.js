@@ -12,6 +12,10 @@ export default defineStore('cart', {
                 productId,
                 qty
             })
+        },
+        removeCartItem(id) {
+            const index = this.cart.findIndex((item) => item.id === id);
+            this.cart.splice(index, 1);
         }
     },
     getters: {

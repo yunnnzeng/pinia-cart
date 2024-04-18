@@ -1,27 +1,29 @@
 import cartStore from "../store/cartStore.js";
-const { mapState } = Pinia;
+const { mapState, mapActions } = Pinia;
 
 export default {
     template: ` <div class="bg-light my-4 p-4">
-    <div>購物車沒有任何品項</div>
-    <table class="table align-middle">
+    <div v-if="!cartList.carts.length">購物車沒有任何品項</div>
+    <table v-else class="table align-middle">
         <tbody>
-            <tr v-for="item in cartList.carts">
+            <tr v-for="item in cartList.carts" :key="item.id">
                 <td>
-                    <a href="#" class="text-dark">X</a>
+                    <a href="#" class="text-dark"
+                        @click.prevent="removeCartItem(item.id)"
+                    >X</a>
                 </td>
                 <td>
-                    <img src="https://images.pexels.com/photos/2444403/pexels-photo-2444403.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    <img :src="item.product.imageUrl"
                         alt="" class="table-image">
                 </td>
-                <td>產品名稱</td>
+                <td>{{ item.product.title }}</td>
                 <td>
                     <select name="" class="form-select" id="">
                         <option value="">1</option>
                     </select>
                 </td>
                 <td class="text-end">
-                    $900
+                    $ {{item.subtotal}}
                 </td>
             </tr>
         </tbody>
@@ -35,5 +37,8 @@ export default {
 `,
     computed: {
         ...mapState(cartStore, ['cartList'])
+    },
+    methods: {
+        ...mapActions(cartStore, ['removeCartItem'])
     }
 }
