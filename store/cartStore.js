@@ -7,11 +7,17 @@ export default defineStore('cart', {
     }),
     actions: {
         addToCart(productId, qty=1){
-            this.cart.push({
-                id: new Date().getTime(),
-                productId,
-                qty
-            })
+            // 取得已經有加入購物車的項目
+            const currentCart = this.cart.find((item) => item.productId === productId)
+            if (currentCart) {
+                currentCart.qty += qty;
+            } else {
+                this.cart.push({
+                    id: new Date().getTime(),
+                    productId,
+                    qty
+                })
+            }
         },
         removeCartItem(id) {
             const index = this.cart.findIndex((item) => item.id === id);
