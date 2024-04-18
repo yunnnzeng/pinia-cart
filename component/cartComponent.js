@@ -1,9 +1,12 @@
+import cartStore from "../store/cartStore.js";
+const { mapState } = Pinia;
+
 export default {
     template: ` <div class="bg-light my-4 p-4">
     <div>購物車沒有任何品項</div>
     <table class="table align-middle">
         <tbody>
-            <tr>
+            <tr v-for="item in cartList.carts">
                 <td>
                     <a href="#" class="text-dark">X</a>
                 </td>
@@ -24,10 +27,13 @@ export default {
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="5" class="text-end">總金額 NT$ 900 </td>
+                <td colspan="5" class="text-end">總金額 NT$ {{cartList.total}} </td>
             </tr>
         </tfoot>
     </table>
 </div>
-`
+`,
+    computed: {
+        ...mapState(cartStore, ['cartList'])
+    }
 }
